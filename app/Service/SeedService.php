@@ -12,8 +12,6 @@ use Carbon\Carbon;
 
 class SeedService extends AbstractSeed
 {
-
-
     public function getDayRates(array $currencyRate, int $dayId = 0)
     {
        return array_map(function ($rate) use ($dayId){
@@ -34,22 +32,8 @@ class SeedService extends AbstractSeed
 
     public function computeVibrations(array $todayRates)
     {
-//        $yesterday = Carbon::now()->subDays(AbstractSeed::YESTERDAY)->format('d/m/Y');
-//        $yesterdayRate = $this->dayRepository->getVibrations($yesterday);
-//
-//        if (empty($yesterdayRate)){
-//            app(CreateRatesForDay::class)->run($yesterday);
-//            $yesterdayRate = $this->dayRepository->getVibrations($yesterday);
-//        }
-//
-//        if (empty($yesterdayRate)){
-//            return $this->computeVibrations($todayRates);
-//        }
-
-
         $yesterday = Carbon::now()->subDays(AbstractSeed::YESTERDAY)->format('d/m/Y');
         $yesterdayRate = $this->dayRepository->getVibrations($yesterday);
-
 
         if (empty($yesterdayRate)){
             app(CreateRatesForDay::class)->run($yesterday);
@@ -73,8 +57,6 @@ class SeedService extends AbstractSeed
                 return $rate;
             }, $todayRates);
         }
-
-
     }
 }
 

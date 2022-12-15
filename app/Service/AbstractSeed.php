@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-use App\DTO\CurrencyRateDTO;
 use App\Repository\CurrencyDayRepository;
 use App\Service\Interfaces\IApiService;
 use App\Service\Interfaces\ISeedService;

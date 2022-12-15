@@ -6,7 +6,7 @@ use App\Service\ApiService;
 use App\Service\Interfaces\IApiService;
 use App\Service\Interfaces\ISampleService;
 use App\Service\Interfaces\ISeedService;
-use App\Service\SampleSampleService;
+use App\Service\SampleService;
 use App\Service\SeedService;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(ISeedService::class, SeedService::class);
         $this->app->bind(IApiService::class, ApiService::class);
-        $this->app->bind(ISampleService::class, SampleSampleService::class);
+        $this->app->bind(ISampleService::class, SampleService::class);
     }
 
     /**
